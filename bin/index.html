@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myapp" ng-controller="AppCtrl">
+<head>
+    <title ng-bind="pageTitle"></title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- font awesome from BootstrapCDN -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- compiled CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/myapp-1.0.0.css"/>
+    
+</head>
+
+<body>
+    <div ng-include="'header.tpl.html'"></div>
+    <!-- Views -->
+    <div class="container-fluid">
+        <div ui-view></div>
+    </div>
+    <!-- compiled JavaScript -->
+    <script type="text/javascript" src="assets/myapp-1.0.0.js"></script>
+    
+</body>
+</html>

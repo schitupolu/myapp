@@ -1,0 +1,43 @@
+/**
+ * These are the variables used throughout the application. This is where 
+ * overwrites that are not specific to components should be maintained.
+ */
+//** Background color for `<body>`.
+@body-bg:               #FFFFFF;
+
+//Body Class
+body {
+  font-size: @font-size-base;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+}
+
+.container-fluid {
+  margin-top: @navbar-height;
+  height: 100%;
+}
+
+.container-fluid > div:first-child {
+  height: 100%;
+}
+
+@navbar-height: 50px;
+
+.navbar {
+  margin-top: 0px !important;
+  margin-bottom: 0px;
+}
+
+/* menu styling */
+.navbar ul li {
+  font: bold 12px/18px sans-serif;
+  display: inline-block;
+  margin-right: -4px;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
