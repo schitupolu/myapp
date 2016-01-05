@@ -7,7 +7,7 @@ angular.module('myapp', [
         'ngTouch',
         'ui.router',
         'ui.bootstrap',
-		'myapp.mconstants',
+        'myapp.mconstants',
         'myapp.mutils',
         'myapp.mresturis',
         'myapp.authservice',
