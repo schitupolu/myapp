@@ -13,8 +13,8 @@ angular.module('myapp.home', [
             });
     })
 
-    .controller('HomeCtrl', ['$rootScope', '$scope', '$state', '$q',
-        function ($rootScope, $scope, $state, $q) {
+    .controller('HomeCtrl', ['$rootScope', '$scope', '$state', '$q', 'M_UtilsService', 'M_ConstantsService',
+        function ($rootScope, $scope, $state, $q, M_UtilsService, M_ConstantsService) {
             //Default Values
             $scope.appdirect = {};
             $scope.appdirect = [{
@@ -3326,5 +3326,11 @@ angular.module('myapp.home', [
                 "possibly_sensitive": false,
                 "lang": "en"
             }];
+
+            /**
+             * Format Create Date
+             */
+            M_UtilsService.dateFormatter($scope.appdirect, M_ConstantsService.CREATED_AT);
+
         }]);
 

@@ -6,7 +6,20 @@
             <div class="panel-body">
                 <div ng-repeat="a in appdirect">
                     <div class="tweet">
-                        {{a.text}}
+                        <!-- Create Date -->
+                        <span ng-bind="a.created_at | date:'medium'"></span>
+                        <!-- Tweet Link -->
+                        <span class="cursorPointer">
+                            <a ng-href="https://twitter.com/statuses/{{a.id_str}}" target="_blank">
+                                <i class="fa fa-external-link"></i>
+                            </a>
+                        </span>
+                        <!-- Name -->
+                        <span ng-if="a.retweeted_status" class="floatRight">
+                            <i class="fa fa-user"></i>&nbsp;{{a.retweeted_status.user.name}}
+                        </span>
+                        <!-- Tweet Content -->
+                        <p>{{a.text}}</p>
                     </div>
                 </div>
             </div>

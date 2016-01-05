@@ -7,5 +7,7 @@ angular.module('myapp.mconstants', [])
         IN_PROGRESS: 'in_progress',
         ERROR: 'error',
         //Polling Interval
-        POLLING_INTERVAL_1000: 1000
+        POLLING_INTERVAL_1000: 1000,
+        //Create Date
+        CREATED_AT: 'created_at'
     });
