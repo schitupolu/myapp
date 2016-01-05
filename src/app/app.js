@@ -12,7 +12,8 @@ angular.module('myapp', [
         'myapp.mresturis',
         'myapp.authservice',
         'myapp.homeservice',
-        'myapp.home'
+        'myapp.home',
+        'myapp.details'
     ])
 
     .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
