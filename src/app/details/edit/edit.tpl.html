@@ -1,0 +1,66 @@
+<div id="edit" class="row-fluid">
+    <!-- Settings Form -->
+    <form class="form-horizontal group" name="settingsForm" id="settingsForm">
+        <!-- Columns Order -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Columns Order</label>
+
+            <div class="col-sm-8">
+                <input type="text" class="form-control" ng-model="settings.columns" name="columns" id="columns"
+                       placeholder="Columns Order">
+            </div>
+        </div>
+        <!-- Time Range -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Tweets Until</label>
+
+            <div class="col-sm-8">
+                <p class="input-group">
+                    <!--<input type="text" class="form-control" datepicker-popup="MM/dd/yyyy" ng-model="settings.date"
+                           is-open="opened" min="settings.minDate" max="settings.minDate"
+                           datepicker-options="dataOptions" date-disabled="" ng-required="true"/>-->
+                    <span class="input-group-btn">
+                        <button class="btn" ng-click="open()"><i class="fa fa-calendar"></i></button>
+                        </span>
+                </p>
+            </div>
+        </div>
+        <!-- Number of Tweets -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Number of Tweets</label>
+
+            <div class="col-sm-8">
+                <input type="number" class="form-control" ng-model="settings.count" id="count"
+                       placeholder="Number of Tweets">
+            </div>
+        </div>
+        <!-- Palette/Skin -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Palette/Skin</label>
+
+            <div class="col-sm-8">
+                <div class="palette-picker-container">
+                    <div class="palette-picker-initial" ng-click="togglePicker()">Choose color palette<span
+                            class="down-arrow">&#x25BE;</span></div>
+                    <ul class="palette-choice-list" ng-show="pickerVisible">
+                        <li ng-repeat="choice in choices" class="palette-choice" ng-click="choosePalette(choice)">
+                            <span class="color-preview" style="background-color:{{choice.background}};"></span>
+                            <span class="color-preview" style="background-color:{{choice.text}};"></span>
+                            <span class="color-preview" style="background-color:{{choice.link}};"></span>
+                            <span class="color-preview" style="background-color:{{choice.accent}};"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Buttons -->
+        <div class="col-sm-11 alignCenter">
+            <button type="button" class="btn btn-primary" ng-click="saveSettings('save')">
+                Save
+            </button>
+            <button type="button" class="btn btn-default"
+                    ng-click="saveSettings('cancel')">Cancel
+            </button>
+        </div>
+    </form>
+</div>
