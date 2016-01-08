@@ -16,9 +16,9 @@
 
             <div class="col-sm-8">
                 <p class="input-group">
-                    <!--<input type="text" class="form-control" datepicker-popup="MM/dd/yyyy" ng-model="settings.date"
-                           is-open="opened" min="settings.minDate" max="settings.minDate"
-                           datepicker-options="dataOptions" date-disabled="" ng-required="true"/>-->
+                    <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy" ng-model="settings.date"
+                           is-open="opened" min-date="settings.minDate" max-date="settings.minDate"
+                           datepicker-options="dateOptions" date-disabled="" ng-required="true"/>
                     <span class="input-group-btn">
                         <button class="btn" ng-click="open()"><i class="fa fa-calendar"></i></button>
                         </span>
