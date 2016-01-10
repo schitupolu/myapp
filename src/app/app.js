@@ -7,6 +7,7 @@ angular.module('myapp', [
         'ngTouch',
         'ui.router',
         'ui.bootstrap',
+        'LocalStorageModule',
         'myapp.mconstants',
         'myapp.mutils',
         'myapp.mresturis',
@@ -16,13 +17,14 @@ angular.module('myapp', [
         'myapp.details'
     ])
 
-    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
-        function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'localStorageServiceProvider',
+        function ($stateProvider, $urlRouterProvider, $locationProvider, localStorageServiceProvider) {
             $locationProvider.html5Mode({
                 enabled: true,
                 requireBase: false
             });
             $urlRouterProvider.otherwise('/home');
+            localStorageServiceProvider.setPrefix('myapp');
         }])
 
     .run(['$rootScope', '$state', 'AuthService', function ($rootScope, $state, AuthService) {

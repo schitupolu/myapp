@@ -26,11 +26,11 @@ angular.module('myapp.home', [
                 });
             };
             //Fetch @AppDirect Tweets
-            fetchTweets(M_ConstantsService.APP_DIRECT, 'appdirect');
+            fetchTweets(M_ConstantsService.APP_DIRECT, M_ConstantsService.APP_DIRECT);
             //Fetch @laughingsquid Tweets
-            fetchTweets(M_ConstantsService.LAUGHINGSQUID, 'laughingsquid');
+            fetchTweets(M_ConstantsService.LAUGHINGSQUID, M_ConstantsService.LAUGHINGSQUID);
             //Fetch @techcrunch Tweets
-            fetchTweets(M_ConstantsService.TECHCRUNCH, 'techcrunch');
+            fetchTweets(M_ConstantsService.TECHCRUNCH, M_ConstantsService.TECHCRUNCH);
 
             /**
              * Format Create Date

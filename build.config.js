@@ -72,7 +72,9 @@ module.exports = {
             'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
             'bower_components/bootstrap/dist/js/bootstrap.min.js',
             //ui-router
-            'bower_components/angular-ui-router/release/angular-ui-router.js'
+            'bower_components/angular-ui-router/release/angular-ui-router.js',
+            //angular-local-storage
+            'bower_components/angular-local-storage/dist/angular-local-storage.min.js'
         ],
         css: [],
         assets: []
