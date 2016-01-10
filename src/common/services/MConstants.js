@@ -22,5 +22,6 @@ angular.module('myapp.mconstants', [])
         //LocalStorageKeys
         COUNT: 'count',
         DATE: 'date',
-        PALETTE: 'palette'
+        PALETTE: 'palette',
+        DEFAULT_COLOR: '#FFFFFF'
     });

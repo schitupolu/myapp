@@ -11,6 +11,20 @@ angular.module('myapp.mutils', [])
                 value[attribute] = Date.parse(value[attribute]);
             });
             return data;
-        };
+        },
+        /**
+         * Check if @param value is null or undefined
+         */
+            mUtilsFactory.isNull = function (value) {
+                if ((value == null) || (typeof value == 'undefined')) {
+                    return true;
+                }
+                return false;
+            },
+
+            mUtilsFactory.notNull = function (value) {
+                return !this.isNull(value);
+            };
+
         return mUtilsFactory;
     }]);

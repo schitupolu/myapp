@@ -4,7 +4,32 @@
     <div class="btn" ng-click="toggleSettings()" id="settings">
         <i class="fa fa-cog"></i>&nbsp;Settings
     </div>
-    <div>
-        View Content!!!
+    <div ng-repeat="tweet in tweetColumns">
+        <div id="tweet_{{$index}}" class="tweet-order">
+            <div class="panel panel-primary">
+                <div class="panel-heading">@{{tweet.key}}</div>
+                <div class="panel-body">
+                    <div ng-repeat="t in tweet.tweets">
+                        <div class="tweet">
+                            <!-- Create Date -->
+                            <span ng-bind="t.createdAt | date: 'medium'"></span>
+                            <!-- Tweet Link -->
+                        <span class="cursorPointer">
+                            <a ng-href="https://twitter.com/{{t.user.screenName}}/status/{{t.id}}" target="_blank">
+                                <i class="fa fa-external-link"></i>
+                            </a>
+                        </span>
+                            <!-- Name -->
+                        <span ng-if="t.retweetedStatus || t.userMentionEntities.length > 0" class="floatRight">
+                            <i class="fa fa-user"></i>&nbsp;{{t.user.screenName}}
+                        </span>
+                            <!-- Tweet Content -->
+                            <p>{{t.text}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

@@ -13,6 +13,7 @@ angular.module('myapp', [
         'myapp.mresturis',
         'myapp.authservice',
         'myapp.homeservice',
+        'myapp.detailsservice',
         'myapp.home',
         'myapp.details'
     ])
