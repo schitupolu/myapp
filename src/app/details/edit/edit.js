@@ -1,10 +1,23 @@
 angular.module('myapp.details.edit', [])
 
-    .controller('EditCtrl', ['$scope', '$state', '$q', '$timeout', 'M_UtilsService', 'M_ConstantsService',
-        function ($scope, $state, $q, $timeout, M_UtilsService, M_ConstantsService) {
+    .controller('EditCtrl', ['$scope', '$state', '$q', '$timeout', 'localStorageService', 'M_UtilsService', 'M_ConstantsService',
+        function ($scope, $state, $q, $timeout, localStorageService, M_UtilsService, M_ConstantsService) {
             //Settings
             $scope.settings = {};
             //Columns
+            $scope.settings.tweets = [];
+            var tempObj = {};
+            tempObj.key = M_ConstantsService.APP_DIRECT;
+            tempObj.value = 0;
+            $scope.settings.tweets.push(tempObj);
+            var tempObj1 = {};
+            tempObj1.key = M_ConstantsService.LAUGHINGSQUID;
+            tempObj1.value = 1;
+            $scope.settings.tweets.push(tempObj1);
+            var tempObj2 = {};
+            tempObj2.key = M_ConstantsService.TECHCRUNCH;
+            tempObj2.value = 2;
+            $scope.settings.tweets.push(tempObj2);
 
             //Time Range
             $scope.settings.date = new Date();
@@ -23,27 +36,12 @@ angular.module('myapp.details.edit', [])
             //Tweets Count
             $scope.settings.count = 5;
             //Palette
-            $scope.colorChoice = '';
-            $scope.colorChoices = [
-                {
-                    "background": "#ecf0f1",
-                    "text": "#2ecc71",
-                    "link": "#3498db",
-                    "accent": "#2980b9"
-                },
-                {
-                    "background": "#1abc9c",
-                    "text": "#ffffff",
-                    "link": "#2980b9",
-                    "accent": "#34495e"
-                }
-            ];
+            $scope.settings.palette = M_ConstantsService.DEFAULT_COLOR;
 
             /**
              * Function invoke when click on Settings Save/Cancel Button
              */
             $scope.saveSettings = function (action) {
-                console.log("Action :: " + action);
                 if (action === M_ConstantsService.SAVE) {
                     console.log(action);
                 } else if (action === M_ConstantsService.CANCEL) {
