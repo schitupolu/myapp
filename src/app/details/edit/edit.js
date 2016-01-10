@@ -7,10 +7,10 @@ angular.module('myapp.details.edit', [])
             //Columns
 
             //Time Range
-            var settingsVar = {};
-            settingsVar.date = new Date();
-            settingsVar.maxDate = new Date();
-            $scope.settings = settingsVar;
+            $scope.settings.date = new Date();
+            var minDate = new Date();
+            //$scope.settings.minDate = minDate.getDay() - 1;
+            $scope.settings.maxDate = new Date();
             $scope.open = function () {
                 $timeout(function () {
                     $scope.opened = true;
