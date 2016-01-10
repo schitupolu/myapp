@@ -7,16 +7,16 @@
                 <div ng-repeat="a in appdirect">
                     <div class="tweet">
                         <!-- Create Date -->
-                        <span ng-bind="a.created_at | date:'medium'"></span>
+                        <span ng-bind="a.createdAt | date: 'medium'"></span>
                         <!-- Tweet Link -->
                         <span class="cursorPointer">
-                            <a ng-href="https://twitter.com/statuses/{{a.id_str}}" target="_blank">
+                            <a ng-href="https://twitter.com/{{a.user.screenName}}/status/{{a.id}}" target="_blank">
                                 <i class="fa fa-external-link"></i>
                             </a>
                         </span>
                         <!-- Name -->
-                        <span ng-if="a.retweeted_status || a.entities.user_mentions.length > 0" class="floatRight">
-                            <i class="fa fa-user"></i>&nbsp;{{a.user.name}}
+                        <span ng-if="a.retweetedStatus || a.userMentionEntities.length > 0" class="floatRight">
+                            <i class="fa fa-user"></i>&nbsp;{{a.user.screenName}}
                         </span>
                         <!-- Tweet Content -->
                         <p>{{a.text}}</p>
@@ -30,22 +30,22 @@
         <div class="panel panel-primary">
             <div class="panel-heading">@laughingsquid</div>
             <div class="panel-body">
-                <div ng-repeat="a in appdirect">
+                <div ng-repeat="l in laughingsquid">
                     <div class="tweet">
                         <!-- Create Date -->
-                        <span ng-bind="a.created_at | date:'medium'"></span>
+                        <span ng-bind="l.createdAt | date: 'medium'"></span>
                         <!-- Tweet Link -->
                         <span class="cursorPointer">
-                            <a ng-href="https://twitter.com/statuses/{{a.id_str}}" target="_blank">
+                            <a ng-href="https://twitter.com/{{l.user.screenName}}/status/{{l.id}}" target="_blank">
                                 <i class="fa fa-external-link"></i>
                             </a>
                         </span>
                         <!-- Name -->
-                        <span ng-if="a.retweeted_status || a.entities.user_mentions.length > 0" class="floatRight">
-                            <i class="fa fa-user"></i>&nbsp;{{a.retweeted_status.user.name}}
+                        <span ng-if="l.retweetedStatus || l.userMentionEntities.length > 0" class="floatRight">
+                            <i class="fa fa-user"></i>&nbsp;{{l.user.screenName}}
                         </span>
                         <!-- Tweet Content -->
-                        <p>{{a.text}}</p>
+                        <p>{{l.text}}</p>
                     </div>
                 </div>
             </div>
@@ -56,22 +56,22 @@
         <div class="panel panel-primary">
             <div class="panel-heading">@techcrunch</div>
             <div class="panel-body">
-                <div ng-repeat="a in appdirect">
+                <div ng-repeat="t in techcrunch">
                     <div class="tweet">
                         <!-- Create Date -->
-                        <span ng-bind="a.created_at | date:'medium'"></span>
+                        <span ng-bind="t.createdAt | date: 'medium'"></span>
                         <!-- Tweet Link -->
                         <span class="cursorPointer">
-                            <a ng-href="https://twitter.com/statuses/{{a.id_str}}" target="_blank">
+                            <a ng-href="https://twitter.com/{{t.user.screenName}}/status/{{t.id}}" target="_blank">
                                 <i class="fa fa-external-link"></i>
                             </a>
                         </span>
                         <!-- Name -->
-                        <span ng-if="a.retweeted_status || a.entities.user_mentions.length > 0" class="floatRight">
-                            <i class="fa fa-user"></i>&nbsp;{{a.retweeted_status.user.name}}
+                        <span ng-if="t.retweetedStatus || t.userMentionEntities.length > 0" class="floatRight">
+                            <i class="fa fa-user"></i>&nbsp;{{t.user.screenName}}
                         </span>
                         <!-- Tweet Content -->
-                        <p>{{a.text}}</p>
+                        <p>{{t.text}}</p>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,11 @@ angular.module('myapp.mconstants', [])
         CANCEL: 'cancle',
         //Polling Interval
         POLLING_INTERVAL_1000: 1000,
-        //Create Date
+        //Tweets
+        INT_30: 30,
+        APP_DIRECT: 'AppDirect',
+        LAUGHINGSQUID: 'laughingsquid',
+        TECHCRUNCH: 'techcrunch',
         CREATED_AT: 'created_at',
         //ROUTES
         DETAILS_VIEW: 'details.view',
