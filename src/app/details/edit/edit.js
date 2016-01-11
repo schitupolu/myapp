@@ -58,8 +58,20 @@ angular.module('myapp.details.edit', [])
             /**
              * Function invoke when click on Settings Save/Cancel Button
              */
+            $scope.showDateError = false;
+            $scope.showCountError = false;
             $scope.saveSettings = function (action) {
+                $scope.showDateError = false;
+                $scope.showCountError = false;
                 if (action === M_ConstantsService.SAVE) {
+                    if ($scope.settings.dateSince >= $scope.settings.dateUntil) {
+                        $scope.showDateError = true;
+                        return;
+                    }
+                    if (M_UtilsService.isNull($scope.settings.count)) {
+                        $scope.showCountError = true;
+                        return;
+                    }
                     localStorageService.set(M_ConstantsService.DATE_SINCE, $scope.settings.dateSince);
                     localStorageService.set(M_ConstantsService.DATE_UNTIL, $scope.settings.dateUntil);
                     localStorageService.set(M_ConstantsService.COUNT, $scope.settings.count);
