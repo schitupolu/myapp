@@ -53,7 +53,7 @@ angular.module('myapp.details.edit', [])
             //Tweets Count
             $scope.settings.count = localStorageService.get(M_ConstantsService.COUNT);
             //Palette
-            $scope.settings.palette = M_ConstantsService.DEFAULT_COLOR;
+            $scope.settings.palette = localStorageService.get(M_ConstantsService.PALETTE);
 
             /**
              * Function invoke when click on Settings Save/Cancel Button
@@ -63,7 +63,7 @@ angular.module('myapp.details.edit', [])
                     localStorageService.set(M_ConstantsService.DATE_SINCE, $scope.settings.dateSince);
                     localStorageService.set(M_ConstantsService.DATE_UNTIL, $scope.settings.dateUntil);
                     localStorageService.set(M_ConstantsService.COUNT, $scope.settings.count);
-                    //localStorageService.set(M_ConstantsService.PALETTE, M_ConstantsService.DEFAULT_COLOR);
+                    localStorageService.set(M_ConstantsService.PALETTE, $scope.settings.palette);
                 }
                 $state.transitionTo(M_ConstantsService.DETAILS_VIEW);
             };

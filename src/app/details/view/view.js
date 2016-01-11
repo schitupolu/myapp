@@ -8,6 +8,7 @@ angular.module('myapp.details.view', [])
             $scope.toggleSettings = function () {
                 $state.transitionTo(M_ConstantsService.DETAILS_EDIT);
             };
+            $scope.backGroundColor = localStorageService.get(M_ConstantsService.PALETTE);
 
             /**
              * Function to fetch Tweets

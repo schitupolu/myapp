@@ -8,7 +8,7 @@
         <div id="tweet_{{$index}}" class="tweet-order">
             <div class="panel panel-primary">
                 <div class="panel-heading">@{{tweet.key}}</div>
-                <div class="panel-body">
+                <div class="panel-body" ng-style="{'background-color': backGroundColor}">
                     <div ng-repeat="t in tweet.tweets">
                         <div class="tweet">
                             <!-- Create Date -->
