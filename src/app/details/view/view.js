@@ -23,11 +23,30 @@ angular.module('myapp.details.view', [])
                 defaultSizeX: 1,
                 defaultSizeY: 1,
                 draggable: {
-                    enabled: true
+                    enabled: true,
+                    stop: function (event, $element, widget) {
+                        updateColumnsOrder(widget.name, widget.col);
+                    }
                 },
                 resizable: {
                     enabled: false
                 }
+            };
+
+            /**
+             * Fucntion to update the columns order
+             */
+            var updateColumnsOrder = function (column, position) {
+                //Update Columns Order
+                var temp = localStorageService.get(column);
+                localStorageService.set(column, position);
+                angular.forEach($scope.tweetAccounts, function (value, key) {
+                    if (value.name !== column) {
+                        if (position === localStorageService.get(value.name)) {
+                            localStorageService.set(value.name, temp);
+                        }
+                    }
+                });
             };
 
             /**
@@ -46,7 +65,7 @@ angular.module('myapp.details.view', [])
                                     }
                                 });
                             } else {
-                                console.log("Error while updating Auto Balance Value !");
+                                console.log("Error while fetching Tweets !");
                             }
                         },
                         function (error) {
@@ -71,6 +90,5 @@ angular.module('myapp.details.view', [])
             fetchTweets(M_ConstantsService.APP_DIRECT);
             fetchTweets(M_ConstantsService.LAUGHINGSQUID);
             fetchTweets(M_ConstantsService.TECHCRUNCH);
-
         }]);
 
