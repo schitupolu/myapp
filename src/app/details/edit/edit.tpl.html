@@ -10,17 +10,34 @@
                        placeholder="Columns Order">
             </div>
         </div>
-        <!-- Time Range -->
+        <!-- Tweets From -->
         <div class="form-group">
-            <label class="col-sm-3 control-label">Tweets Until</label>
+            <label class="col-sm-3 control-label">Tweets From</label>
 
-            <div class="col-sm-8">
+            <div class="col-sm-3">
                 <p class="input-group">
-                    <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy" ng-model="settings.date"
-                           is-open="opened" min-date="settings.minDate" max-date="settings.maxDate" show-weeks="false"
-                           datepicker-options="dateOptions" date-disabled="" ng-required="true"/>
+                    <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy"
+                           ng-model="settings.dateSince"
+                           is-open="dsOpened" min-date="settings.dsMinDate" max-date="settings.dsMaxDate"
+                           show-weeks="false" datepicker-options="dateOptions" date-disabled="" ng-required="true"/>
                     <span class="input-group-btn">
-                        <button class="btn" ng-click="open()"><i class="fa fa-calendar"></i></button>
+                        <button class="btn" ng-click="openDS()"><i class="fa fa-calendar"></i></button>
+                        </span>
+                </p>
+            </div>
+        </div>
+        <!-- Tweets To -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Tweets To</label>
+
+            <div class="col-sm-3">
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="MM/dd/yyyy"
+                           ng-model="settings.dateUntil"
+                           is-open="duOpened" min-date="settings.duMinDate" max-date="settings.duMaxDate"
+                           show-weeks="false" datepicker-options="dateOptions" date-disabled="" ng-required="true"/>
+                    <span class="input-group-btn">
+                        <button class="btn" ng-click="openDU()"><i class="fa fa-calendar"></i></button>
                         </span>
                 </p>
             </div>
@@ -39,18 +56,7 @@
             <label class="col-sm-3 control-label">Palette/Skin</label>
 
             <div class="col-sm-8">
-                <div class="palette-picker-container">
-                    <div class="palette-picker-initial" ng-click="togglePicker()">Choose color palette<span
-                            class="down-arrow">&#x25BE;</span></div>
-                    <ul class="palette-choice-list" ng-show="pickerVisible">
-                        <li ng-repeat="choice in choices" class="palette-choice" ng-click="choosePalette(choice)">
-                            <span class="color-preview" style="background-color:{{choice.background}};"></span>
-                            <span class="color-preview" style="background-color:{{choice.text}};"></span>
-                            <span class="color-preview" style="background-color:{{choice.link}};"></span>
-                            <span class="color-preview" style="background-color:{{choice.accent}};"></span>
-                        </li>
-                    </ul>
-                </div>
+
             </div>
         </div>
         <!-- Buttons -->

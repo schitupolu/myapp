@@ -16,7 +16,7 @@ angular.module('myapp.details.view', [])
             var fetchTweets = function (username) {
                 var deferred = $q.defer();
                 var tweetsPromise = deferred.promise;
-                tweetsPromise = DetailsService.searchTweets(username, M_ConstantsService.INT_30);
+                tweetsPromise = DetailsService.searchTweets(username, localStorageService.get(M_ConstantsService.COUNT), localStorageService.get(M_ConstantsService.DATE_SINCE), localStorageService.get(M_ConstantsService.DATE_UNTIL));
                 tweetsPromise
                     .then(function (data) {
                             if (data) {

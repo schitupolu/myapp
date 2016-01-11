@@ -20,13 +20,30 @@ angular.module('myapp.details.edit', [])
             $scope.settings.tweets.push(tempObj2);
 
             //Time Range
-            $scope.settings.date = new Date();
-            var minDate = new Date();
-            //$scope.settings.minDate = minDate.getDay() - 1;
-            $scope.settings.maxDate = new Date();
-            $scope.open = function () {
+            //Date From
+            var previousDate = new Date();
+            previousDate.setDate(previousDate.getDate() - 1);
+            $scope.settings.dateSince = previousDate;
+            var dsMinDate = new Date();
+            dsMinDate.setDate(dsMinDate.getDate() - 10);
+            $scope.settings.dsMinDate = dsMinDate;
+            $scope.settings.dsMaxDate = previousDate;
+
+            //Date To
+            $scope.settings.dateUntil = new Date();
+            var duMinDate = new Date();
+            duMinDate.setDate(duMinDate.getDate() - 9);
+            $scope.settings.duMinDate = duMinDate;
+            $scope.settings.duMaxDate = new Date();
+
+            $scope.openDS = function () {
                 $timeout(function () {
-                    $scope.opened = true;
+                    $scope.dsOpened = true;
+                });
+            };
+            $scope.openDU = function () {
+                $timeout(function () {
+                    $scope.duOpened = true;
                 });
             };
             $scope.dateOptions = {
@@ -43,9 +60,10 @@ angular.module('myapp.details.edit', [])
              */
             $scope.saveSettings = function (action) {
                 if (action === M_ConstantsService.SAVE) {
-                    console.log(action);
-                } else if (action === M_ConstantsService.CANCEL) {
-                    console.log(action);
+                    localStorageService.set(M_ConstantsService.DATE_SINCE, $scope.settings.dateSince);
+                    localStorageService.set(M_ConstantsService.DATE_UNTIL, $scope.settings.dateUntil);
+                    localStorageService.set(M_ConstantsService.COUNT, $scope.settings.count);
+                    //localStorageService.set(M_ConstantsService.PALETTE, M_ConstantsService.DEFAULT_COLOR);
                 }
                 $state.transitionTo(M_ConstantsService.DETAILS_VIEW);
             };

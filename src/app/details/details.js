@@ -31,7 +31,7 @@ angular.module('myapp.details', [
                     localStorageService.set(M_ConstantsService.APP_DIRECT, 0);
                     localStorageService.set(M_ConstantsService.LAUGHINGSQUID, 1);
                     localStorageService.set(M_ConstantsService.TECHCRUNCH, 2);
-                    localStorageService.set(M_ConstantsService.DATE, new Date());
+                    localStorageService.set(M_ConstantsService.DATE_SINCE, new Date());
                     localStorageService.set(M_ConstantsService.COUNT, M_ConstantsService.INT_30);
                     localStorageService.set(M_ConstantsService.PALETTE, M_ConstantsService.DEFAULT_COLOR);
                 }
