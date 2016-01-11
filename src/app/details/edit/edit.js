@@ -51,7 +51,7 @@ angular.module('myapp.details.edit', [])
                 'starting-day': 1
             };
             //Tweets Count
-            $scope.settings.count = 5;
+            $scope.settings.count = localStorageService.get(M_ConstantsService.COUNT);
             //Palette
             $scope.settings.palette = M_ConstantsService.DEFAULT_COLOR;
 
