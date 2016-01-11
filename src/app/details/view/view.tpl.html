@@ -4,12 +4,14 @@
     <div class="btn" ng-click="toggleSettings()" id="settings">
         <i class="fa fa-cog"></i>&nbsp;Settings
     </div>
-    <div ng-repeat="tweet in tweetColumns">
-        <div id="tweet_{{$index}}" class="tweet-order">
-            <div class="panel panel-primary">
-                <div class="panel-heading">@{{tweet.key}}</div>
+    <div gridster="gridsterOptions">
+        <ul>
+            <li gridster-item="widget" ng-repeat="account in tweetAccounts">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">@{{account.name}}</div>
+                </div>
                 <div class="panel-body" ng-style="{'background-color': backGroundColor}">
-                    <div ng-repeat="t in tweet.tweets">
+                    <div ng-repeat="t in account.tweets">
                         <div class="tweet">
                             <!-- Create Date -->
                             <span ng-bind="t.createdAt | date: 'medium'"></span>
@@ -28,8 +30,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
+            </li>
+        </ul>
     </div>
 </div>

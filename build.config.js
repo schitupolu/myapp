@@ -74,7 +74,9 @@ module.exports = {
             //ui-router
             'bower_components/angular-ui-router/release/angular-ui-router.js',
             //angular-local-storage
-            'bower_components/angular-local-storage/dist/angular-local-storage.min.js'
+            'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
+            //angular-gridster
+            'bower_components/angular-gridster/dist/angular-gridster.min.js'
         ],
         css: [],
         assets: []

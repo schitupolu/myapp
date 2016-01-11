@@ -8,6 +8,7 @@ angular.module('myapp', [
         'ui.router',
         'ui.bootstrap',
         'LocalStorageModule',
+        'gridster',
         'myapp.mconstants',
         'myapp.mutils',
         'myapp.mresturis',
