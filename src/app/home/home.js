@@ -13,15 +13,17 @@ angular.module('myapp.home', [
             });
     })
 
-    .controller('HomeCtrl', ['$rootScope', '$scope', '$state', '$q', 'M_UtilsService', 'M_ConstantsService', 'HomeService',
-        function ($rootScope, $scope, $state, $q, M_UtilsService, M_ConstantsService, HomeService) {
+    .controller('HomeCtrl', ['$scope', '$state', 'M_UtilsService', 'M_ConstantsService', 'HomeService',
+        function ($scope, $state, M_UtilsService, M_ConstantsService, HomeService) {
             //Default Values
+            var todayDate = new Date().toISOString().split('T')[0];
+
             /**
              * Function to fetch Tweets
              */
             var fetchTweets = function (username, scope) {
                 //Get Tweets
-                HomeService.searchTweets(username, M_ConstantsService.INT_30).then(function (data) {
+                HomeService.searchTweets(username, M_ConstantsService.INT_30, null, todayDate).then(function (data) {
                     $scope[scope] = data;
                 });
             };
