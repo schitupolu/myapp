@@ -31,6 +31,8 @@ module.exports = function(config) {
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
       'bower_components/bootstrap/dist/js/bootstrap.min.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
+      'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
+      'bower_components/angular-gridster/dist/angular-gridster.min.js',
       'build/templates-app.js',
       'build/templates-common.js',
       'bower_components/angular-mocks/angular-mocks.js',
