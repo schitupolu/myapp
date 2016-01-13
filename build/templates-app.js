@@ -92,7 +92,7 @@ angular.module("details/view/view.tpl.html", []).run(["$templateCache", function
     "                <div class=\"panel panel-primary\">\n" +
     "                    <div class=\"panel-heading\">@{{account.name}}</div>\n" +
     "                </div>\n" +
-    "                <div class=\"panel-body\" ng-style=\"{'background-color': backGroundColor}\">\n" +
+    "                <div class=\"panel-body\" ng-style=\"{'background-color': backGroundColor}\" resize-height=\"120\">\n" +
     "                    <div ng-repeat=\"t in account.tweets\">\n" +
     "                        <div class=\"tweet\">\n" +
     "                            <!-- Create Date -->\n" +
@@ -146,85 +146,34 @@ angular.module("header.tpl.html", []).run(["$templateCache", function($templateC
 
 angular.module("home/home.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("home/home.tpl.html",
-    "<div id=\"home\" class=\"row-fluid\">\n" +
-    "    <!-- AppDirect -->\n" +
-    "    <div id=\"appdirect\">\n" +
-    "        <div class=\"panel panel-primary\">\n" +
-    "            <div class=\"panel-heading\">@AppDirect</div>\n" +
-    "            <div class=\"panel-body\">\n" +
-    "                <div ng-repeat=\"a in appdirect\">\n" +
-    "                    <div class=\"tweet\">\n" +
-    "                        <!-- Create Date -->\n" +
-    "                        <span ng-bind=\"a.createdAt | date: 'medium'\"></span>\n" +
-    "                        <!-- Tweet Link -->\n" +
-    "                        <span class=\"cursorPointer\">\n" +
-    "                            <a ng-href=\"https://twitter.com/{{a.user.screenName}}/status/{{a.id}}\" target=\"_blank\">\n" +
-    "                                <i class=\"fa fa-external-link\"></i>\n" +
-    "                            </a>\n" +
-    "                        </span>\n" +
-    "                        <!-- Name -->\n" +
-    "                        <span ng-if=\"a.retweetedStatus || a.userMentionEntities.length > 0\" class=\"floatRight\">\n" +
-    "                            <i class=\"fa fa-user\"></i>&nbsp;{{a.user.screenName}}\n" +
-    "                        </span>\n" +
-    "                        <!-- Tweet Content -->\n" +
-    "                        <p>{{a.text}}</p>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "        </div>\n" +
-    "    </div>\n" +
-    "    <!-- laughingsquid -->\n" +
-    "    <div id=\"laughingsquid\">\n" +
-    "        <div class=\"panel panel-primary\">\n" +
-    "            <div class=\"panel-heading\">@laughingsquid</div>\n" +
-    "            <div class=\"panel-body\">\n" +
-    "                <div ng-repeat=\"l in laughingsquid\">\n" +
-    "                    <div class=\"tweet\">\n" +
-    "                        <!-- Create Date -->\n" +
-    "                        <span ng-bind=\"l.createdAt | date: 'medium'\"></span>\n" +
-    "                        <!-- Tweet Link -->\n" +
-    "                        <span class=\"cursorPointer\">\n" +
-    "                            <a ng-href=\"https://twitter.com/{{l.user.screenName}}/status/{{l.id}}\" target=\"_blank\">\n" +
-    "                                <i class=\"fa fa-external-link\"></i>\n" +
-    "                            </a>\n" +
-    "                        </span>\n" +
-    "                        <!-- Name -->\n" +
-    "                        <span ng-if=\"l.retweetedStatus || l.userMentionEntities.length > 0\" class=\"floatRight\">\n" +
-    "                            <i class=\"fa fa-user\"></i>&nbsp;{{l.user.screenName}}\n" +
-    "                        </span>\n" +
-    "                        <!-- Tweet Content -->\n" +
-    "                        <p>{{l.text}}</p>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "        </div>\n" +
-    "    </div>\n" +
-    "    <!-- techcrunch -->\n" +
-    "    <div id=\"techcrunch\">\n" +
-    "        <div class=\"panel panel-primary\">\n" +
-    "            <div class=\"panel-heading\">@techcrunch</div>\n" +
-    "            <div class=\"panel-body\">\n" +
-    "                <div ng-repeat=\"t in techcrunch\">\n" +
-    "                    <div class=\"tweet\">\n" +
-    "                        <!-- Create Date -->\n" +
-    "                        <span ng-bind=\"t.createdAt | date: 'medium'\"></span>\n" +
-    "                        <!-- Tweet Link -->\n" +
+    "<div id=\"home\" class=\"section group\">\n" +
+    "    <div ng-repeat=\"account in tweetAccounts\">\n" +
+    "        <div id=\"{{account.name}}\" class=\"col span_1_of_3 marginRight\">\n" +
+    "            <div class=\"panel panel-primary\">\n" +
+    "                <div class=\"panel-heading\">@{{account.name}}</div>\n" +
+    "                <div class=\"panel-body\" resize-height=\"100\">\n" +
+    "                    <div ng-repeat=\"t in account.tweets\">\n" +
+    "                        <div class=\"tweet\">\n" +
+    "                            <!-- Create Date -->\n" +
+    "                            <span ng-bind=\"t.createdAt | date: 'medium'\"></span>\n" +
+    "                            <!-- Tweet Link -->\n" +
     "                        <span class=\"cursorPointer\">\n" +
     "                            <a ng-href=\"https://twitter.com/{{t.user.screenName}}/status/{{t.id}}\" target=\"_blank\">\n" +
     "                                <i class=\"fa fa-external-link\"></i>\n" +
     "                            </a>\n" +
     "                        </span>\n" +
-    "                        <!-- Name -->\n" +
+    "                            <!-- Name -->\n" +
     "                        <span ng-if=\"t.retweetedStatus || t.userMentionEntities.length > 0\" class=\"floatRight\">\n" +
     "                            <i class=\"fa fa-user\"></i>&nbsp;{{t.user.screenName}}\n" +
     "                        </span>\n" +
-    "                        <!-- Tweet Content -->\n" +
-    "                        <p>{{t.text}}</p>\n" +
+    "                            <!-- Tweet Content -->\n" +
+    "                            <p>{{t.text}}</p>\n" +
+    "                        </div>\n" +
     "                    </div>\n" +
     "                </div>\n" +
+    "\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</div>\n" +
-    "");
+    "</div>");
 }]);
