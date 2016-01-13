@@ -25,13 +25,14 @@ angular.module('myapp.details', [
 
     .controller('DetailsCtrl', ['$scope', '$state', 'localStorageService', 'M_UtilsService', 'M_ConstantsService',
         function ($scope, $state, localStorageService, M_UtilsService, M_ConstantsService) {
+            localStorageService.clearAll();
             //Initial Local Storage Values
             if (localStorageService.isSupported) {
                 if (M_UtilsService.isNull(localStorageService.get(M_ConstantsService.APP_DIRECT))) {
                     localStorageService.set(M_ConstantsService.APP_DIRECT, 0);
                     localStorageService.set(M_ConstantsService.LAUGHINGSQUID, 1);
                     localStorageService.set(M_ConstantsService.TECHCRUNCH, 2);
-                    localStorageService.set(M_ConstantsService.DATE_SINCE, new Date());
+                    localStorageService.set(M_ConstantsService.DATE_UNTIL, new Date());
                     localStorageService.set(M_ConstantsService.COUNT, M_ConstantsService.INT_30);
                     localStorageService.set(M_ConstantsService.PALETTE, M_ConstantsService.DEFAULT_COLOR);
                 }
