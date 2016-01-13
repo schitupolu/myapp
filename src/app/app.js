@@ -9,6 +9,7 @@ angular.module('myapp', [
         'ui.bootstrap',
         'LocalStorageModule',
         'gridster',
+        'myapp.resizeHeight',
         'myapp.mconstants',
         'myapp.mutils',
         'myapp.mresturis',
