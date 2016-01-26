@@ -7,7 +7,7 @@ angular.module('myapp.details', [
     .config(function config($stateProvider) {
         $stateProvider
             .state('details', {
-                url: '/details',
+                //url: '/details',
                 controller: 'DetailsCtrl',
                 templateUrl: 'details/details.tpl.html',
                 data: {pageTitle: 'Details'},

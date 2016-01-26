@@ -7,7 +7,7 @@ angular.module('myapp.details', [
     .config(["$stateProvider", function config($stateProvider) {
         $stateProvider
             .state('details', {
-                url: '/details',
+                //url: '/details',
                 controller: 'DetailsCtrl',
                 templateUrl: 'details/details.tpl.html',
                 data: {pageTitle: 'Details'},
@@ -25,7 +25,6 @@ angular.module('myapp.details', [
 
     .controller('DetailsCtrl', ['$scope', '$state', 'localStorageService', 'M_UtilsService', 'M_ConstantsService',
         function ($scope, $state, localStorageService, M_UtilsService, M_ConstantsService) {
-            localStorageService.clearAll();
             //Initial Local Storage Values
             if (localStorageService.isSupported) {
                 if (M_UtilsService.isNull(localStorageService.get(M_ConstantsService.APP_DIRECT))) {

@@ -26,24 +26,15 @@ angular.module('myapp', [
                 enabled: true,
                 requireBase: false
             });
-            $urlRouterProvider.otherwise('/home');
+            $urlRouterProvider.otherwise('/');
             localStorageServiceProvider.setPrefix('myapp');
         }])
 
     .run(['$rootScope', '$state', 'AuthService', function ($rootScope, $state, AuthService) {
-        // Everytime the route in our app changes check auth status
-        $rootScope.$on("$stateChangeStart", function (event, next, current) {
-            // if you're logged out send to login page.
-            if (next.requireLogin && !AuthService.getUserAuthenticated()) {
-                $state.go('home');
-                event.preventDefault();
-            }
-        });
-        $rootScope.$state = $state;
     }])
 
-    .controller('AppCtrl', ['$rootScope', '$scope', '$cookieStore', '$state', 'AuthService',
-        function MainController($rootScope, $scope, $cookieStore, $state, AuthService) {
+    .controller('AppCtrl', ['$rootScope', '$scope',
+        function MainController($rootScope, $scope) {
             $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
                 if (angular.isDefined(toState.data.pageTitle)) {
                     $scope.pageTitle = toState.data.pageTitle + ' | My App';

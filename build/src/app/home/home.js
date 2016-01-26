@@ -5,7 +5,7 @@ angular.module('myapp.home', [
     .config(["$stateProvider", function config($stateProvider) {
         $stateProvider
             .state('home', {
-                url: '/home',
+                url: '/',
                 controller: 'HomeCtrl',
                 templateUrl: 'home/home.tpl.html',
                 data: {pageTitle: 'Home'},
