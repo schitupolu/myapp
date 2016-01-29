@@ -13,8 +13,11 @@ angular.module('myapp.home', [
             });
     })
 
-    .controller('HomeCtrl', ['$scope', '$state', '$q', 'M_UtilsService', 'M_ConstantsService', 'HomeService',
-        function ($scope, $state, $q, M_UtilsService, M_ConstantsService, HomeService) {
+    .controller('HomeCtrl', ['$scope', '$state', '$q', 'blockUI', 'M_UtilsService', 'M_ConstantsService', 'HomeService',
+        function ($scope, $state, $q, blockUI, M_UtilsService, M_ConstantsService, HomeService) {
+            //Block UI
+            blockUI.instances.get('homeBlockUI').start();
+
             /**
              * Function to fetch Tweets
              */
@@ -30,8 +33,10 @@ angular.module('myapp.home', [
                                         value.tweets = data;
                                     }
                                 });
+                                blockUI.instances.get('homeBlockUI').stop();
                             } else {
                                 console.log("Error while fetching Tweets !");
+                                blockUI.instances.get('homeBlockUI').stop();
                             }
                         },
                         function (error) {

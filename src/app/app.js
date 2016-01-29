@@ -9,6 +9,7 @@ angular.module('myapp', [
         'ui.bootstrap',
         'LocalStorageModule',
         'gridster',
+        'blockUI',
         'myapp.resizeHeight',
         'myapp.mconstants',
         'myapp.mutils',
@@ -20,14 +21,19 @@ angular.module('myapp', [
         'myapp.details'
     ])
 
-    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'localStorageServiceProvider',
-        function ($stateProvider, $urlRouterProvider, $locationProvider, localStorageServiceProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'localStorageServiceProvider', 'blockUIConfig',
+        function ($stateProvider, $urlRouterProvider, $locationProvider, localStorageServiceProvider, blockUIConfig) {
             $locationProvider.html5Mode({
                 enabled: true,
                 requireBase: false
             });
             $urlRouterProvider.otherwise('/');
             localStorageServiceProvider.setPrefix('myapp');
+            //Block UI Config
+            // Disable auto body block
+            blockUIConfig.autoInjectBodyBlock = false;
+            // Disable automatically blocking of the user interface
+            blockUIConfig.autoBlock = false;
         }])
 
     .run(['$rootScope', '$state', 'AuthService', function ($rootScope, $state, AuthService) {
