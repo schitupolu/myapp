@@ -1,9 +1,9 @@
 <div id="home" class="section group">
     <div ng-repeat="account in tweetAccounts">
-        <div id="{{account.name}}" class="col span_1_of_3 marginRight" block-ui="homeBlockUI">
+        <div id="{{account.name}}" class="col span_1_of_3 marginRight">
             <div class="panel panel-primary">
                 <div class="panel-heading">@{{account.name}}</div>
-                <div class="panel-body" resize-height="100">
+                <div class="panel-body" resize-height="100" block-ui="homeBlockUI">
                     <!-- If there are No Tweets to Display-->
                     <div ng-if="account.tweets.length == 0">
                         No Tweets to display !!!

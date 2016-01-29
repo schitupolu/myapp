@@ -1,7 +1,10 @@
 angular.module('myapp.details.view', [])
 
-    .controller('ViewCtrl', ['$scope', '$state', '$q', 'localStorageService', 'M_UtilsService', 'M_ConstantsService', 'DetailsService',
-        function ($scope, $state, $q, localStorageService, M_UtilsService, M_ConstantsService, DetailsService) {
+    .controller('ViewCtrl', ['$scope', '$state', '$q', 'blockUI', 'localStorageService', 'M_UtilsService', 'M_ConstantsService', 'DetailsService',
+        function ($scope, $state, $q, blockUI, localStorageService, M_UtilsService, M_ConstantsService, DetailsService) {
+            //Block UI
+            blockUI.instances.get('viewBlockUI').start();
+
             /**
              * Function toggle Settings
              */
@@ -64,8 +67,10 @@ angular.module('myapp.details.view', [])
                                         value.tweets = data;
                                     }
                                 });
+                                blockUI.instances.get('viewBlockUI').stop();
                             } else {
                                 console.log("Error while fetching Tweets !");
+                                blockUI.instances.get('viewBlockUI').stop();
                             }
                         },
                         function (error) {

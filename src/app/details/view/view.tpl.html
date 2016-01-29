@@ -10,8 +10,13 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">@{{account.name}}</div>
                 </div>
-                <div class="panel-body" ng-style="{'background-color': backGroundColor}" resize-height="120">
-                    <div ng-repeat="t in account.tweets">
+                <div class="panel-body" ng-style="{'background-color': backGroundColor}" resize-height="120" block-ui="viewBlockUI">
+                    <!-- If there are No Tweets to Display-->
+                    <div ng-if="account.tweets.length == 0">
+                        No Tweets to display !!!
+                    </div>
+                    <!-- If there are Tweets-->
+                    <div ng-repeat="t in account.tweets" ng-if="account.tweets.length > 0">
                         <div class="tweet">
                             <!-- Create Date -->
                             <span ng-bind="t.createdAt | date: 'medium'"></span>
