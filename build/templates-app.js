@@ -92,8 +92,13 @@ angular.module("details/view/view.tpl.html", []).run(["$templateCache", function
     "                <div class=\"panel panel-primary\">\n" +
     "                    <div class=\"panel-heading\">@{{account.name}}</div>\n" +
     "                </div>\n" +
-    "                <div class=\"panel-body\" ng-style=\"{'background-color': backGroundColor}\" resize-height=\"120\">\n" +
-    "                    <div ng-repeat=\"t in account.tweets\">\n" +
+    "                <div class=\"panel-body\" ng-style=\"{'background-color': backGroundColor}\" resize-height=\"120\" block-ui=\"viewBlockUI\">\n" +
+    "                    <!-- If there are No Tweets to Display-->\n" +
+    "                    <div ng-if=\"account.tweets.length == 0\">\n" +
+    "                        No Tweets to display !!!\n" +
+    "                    </div>\n" +
+    "                    <!-- If there are Tweets-->\n" +
+    "                    <div ng-repeat=\"t in account.tweets\" ng-if=\"account.tweets.length > 0\">\n" +
     "                        <div class=\"tweet\">\n" +
     "                            <!-- Create Date -->\n" +
     "                            <span ng-bind=\"t.createdAt | date: 'medium'\"></span>\n" +
@@ -151,8 +156,13 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "        <div id=\"{{account.name}}\" class=\"col span_1_of_3 marginRight\">\n" +
     "            <div class=\"panel panel-primary\">\n" +
     "                <div class=\"panel-heading\">@{{account.name}}</div>\n" +
-    "                <div class=\"panel-body\" resize-height=\"100\">\n" +
-    "                    <div ng-repeat=\"t in account.tweets\">\n" +
+    "                <div class=\"panel-body\" resize-height=\"100\" block-ui=\"homeBlockUI\">\n" +
+    "                    <!-- If there are No Tweets to Display-->\n" +
+    "                    <div ng-if=\"account.tweets.length == 0\">\n" +
+    "                        No Tweets to display !!!\n" +
+    "                    </div>\n" +
+    "                    <!-- If there are Tweets-->\n" +
+    "                    <div ng-repeat=\"t in account.tweets\" ng-if=\"account.tweets.length > 0\">\n" +
     "                        <div class=\"tweet\">\n" +
     "                            <!-- Create Date -->\n" +
     "                            <span ng-bind=\"t.createdAt | date: 'medium'\"></span>\n" +

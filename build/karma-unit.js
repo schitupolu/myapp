@@ -33,6 +33,7 @@ module.exports = function(config) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
       'bower_components/angular-gridster/dist/angular-gridster.min.js',
+      'bower_components/angular-block-ui/dist/angular-block-ui.min.js',
       'build/templates-app.js',
       'build/templates-common.js',
       'bower_components/angular-mocks/angular-mocks.js',
