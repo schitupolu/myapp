@@ -12,7 +12,8 @@
     "bootstrap": "~3.1",
     "angular-bootstrap": "",
     "angular-local-storage": "",
-    "angular-gridster": ""
+    "angular-gridster": "",
+    "angular-block-ui": ""
   },
   "dependencies": {}
 }

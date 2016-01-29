@@ -76,7 +76,9 @@ module.exports = {
             //angular-local-storage
             'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
             //angular-gridster
-            'bower_components/angular-gridster/dist/angular-gridster.min.js'
+            'bower_components/angular-gridster/dist/angular-gridster.min.js',
+            //Block UI
+            'bower_components/angular-block-ui/dist/angular-block-ui.min.js'
         ],
         css: [],
         assets: []
